@@ -103,7 +103,7 @@ board.on('ready', function (err) {
 
   // SocketIO 
   socketIO.on('connection', function (socket) {
-    //console.log('New connection!')
+    // console.log('New connection!')
 
     emitUserCount(socketIO)
 
@@ -117,7 +117,7 @@ board.on('ready', function (err) {
 
     //#region Analog controls
     socket.on('leftMotor', function (input) {
-      console.log('leftMotor: ' + input.force)
+      // console.log('leftMotor: ' + input.force)
 
       // INVERTED DIRECTIONS FOR THIS MOTOR
       if (input.direction === 'forward') {
@@ -128,7 +128,7 @@ board.on('ready', function (err) {
     })
 
     socket.on('rightMotor', function (input) {
-      console.log('rightMotor: ' + input.force)
+      // console.log('rightMotor: ' + input.force)
 
       if (input.direction === 'forward') {
         motor2.forward(input.force)
@@ -138,7 +138,7 @@ board.on('ready', function (err) {
     })
 
     socket.on('stop', function (motor) {
-      console.log('STOP!')
+      // console.log('STOP!')
       if (!motor) {
         stop()
       } else if (motor === 'leftMotor') {
@@ -152,6 +152,11 @@ board.on('ready', function (err) {
     socket.on('disconnect', function() {
       checkForZeroUsers(socketIO)
       emitUserCount(socketIO)
+    })
+
+    this.on("exit", function() {
+      motor1.stop()
+      motor2.stop()
     })
   })
 
