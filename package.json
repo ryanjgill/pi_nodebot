@@ -1,0 +1,16 @@
+{
+  "name": "pi_nodebot",
+  "version": "1.0.0",
+  "description": "Nodebot built on a Raspberry Pi using Johnny-Five.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "johnny-five",
+    "nodebot",
+    "websockets"
+  ],
+  "author": "Ryan Gill",
+  "license": "ISC"
+}
