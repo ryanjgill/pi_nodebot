@@ -8,7 +8,8 @@ const express = require('express')
   , ip = require('ip')
   , PORT = 3000
   , board = new five.Board({
-      io: new Raspi()
+      io: new Raspi(),
+      repl: false
     })
   
 function emitUserCount(socketIO) {
