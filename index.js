@@ -3,6 +3,7 @@ const express = require('express')
   , path = require('path')
   , http = require('http').Server(app)
   , socketIO = require('socket.io')(http)
+  , five = require('johnny-five')
   , Raspi = require('raspi-io')
   , ip = require('ip')
   , PORT = 3000
