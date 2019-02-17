@@ -3,6 +3,12 @@ html, body {
   font-family: 'Source Sans Pro', sans-serif;
   touch-action: none; }
 
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
 div {
   -webkit-user-select: none;
   -moz-user-select: none;
