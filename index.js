@@ -49,14 +49,16 @@ board.on('ready', function (err) {
   var motor1 = new five.Motor({
     pins: {
       pwm: 'GPIO13',
-      dir: 'GPIO19'
+      dir: 'GPIO19',
+      brake: 'GPIO26'
     },
     invertPWM: true
   })
   , motor2 = new five.Motor({
     pins: {
       pwm: 'GPIO12',
-      dir: 'GPIO18'
+      dir: 'GPIO18',
+      brake: 'GPIO16'
     },
     invertPWM: true
   })
