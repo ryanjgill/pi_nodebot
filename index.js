@@ -49,19 +49,29 @@ board.on('ready', function (err) {
   var motor1 = new five.Motor({
     pins: {
       pwm: 'GPIO13',
-      dir: 'GPIO19',
-      brake: 'GPIO26'
-    },
-    invertPWM: true
+      dir: 'GPIO19'
+      //brake: 'GPIO26'
+    }
   })
   , motor2 = new five.Motor({
     pins: {
       pwm: 'GPIO12',
-      dir: 'GPIO18',
-      brake: 'GPIO16'
-    },
-    invertPWM: true
+      dir: 'GPIO18'
+      //brake: 'GPIO16'
+    }
   })
+
+  var enablePin1 = new five.Pin({
+    pin: 'GPIO26',
+    type: "digital"
+  })
+  , enablePin2 = new five.Pin({
+    pin: 'GPIO16',
+    type: "digital"
+  });
+
+  enablePin1.high()
+  enablePin2.high()
 
   //#region Digital controls
   function forward(_speed) {
