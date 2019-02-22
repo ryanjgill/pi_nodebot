@@ -6,8 +6,9 @@ window.onload = function () {
     mode: 'static',
     position: { left: '50%', top: '50%' },
     color: 'green',
-    size: 200,
-    name: 'LEFT'
+    size: 300,
+    name: 'LEFT',
+    lockY: true
   })
 
   let joystickR = nipplejs.create({
@@ -15,8 +16,9 @@ window.onload = function () {
     mode: 'static',
     position: { left: '50%', top: '50%' },
     color: 'red',
-    size: 200,
-    name: 'RIGHT'
+    size: 300,
+    name: 'RIGHT',
+    lockY: true
   })
 
   joystickL.on('end', function (joystick, data) {
