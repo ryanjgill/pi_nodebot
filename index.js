@@ -1,10 +1,10 @@
 const express = require('express')
   , app = express()
   , path = require('path')
-  , http = require('http').Server(app)
-  , socketIO = require('socket.io')(http)
+  , server = require('http').createServer(app)
+  , socketIO = require('socket.io')(server)
   , five = require('johnny-five')
-  , Raspi = require('raspi-io')
+  , Raspi = require('raspi-io').RaspiIO
   , ip = require('ip')
   , PORT = 3000
   , board = new five.Board({
@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname + '/public')))
 app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname + '/public/index.html'))
 })
+
 // variable input controller route
 app.get('/controller', function (req, res, next) {
   res.sendFile(path.join(__dirname + '/public/controller.html'))
@@ -171,10 +172,10 @@ board.on('ready', function (err) {
       motor2.stop()
     })
   })
+})
 
-  // set the app to listen on PORT
-  http.listen(PORT)
-
+// set the server to listen on PORT
+server.listen(PORT, () => {
   // log the address and port
   console.log('Up and running on ' + ip.address() + ':' + PORT)
 })
